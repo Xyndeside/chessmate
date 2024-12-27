@@ -7,15 +7,22 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    padding-left: 100px;
 }
 
 .board {
     width: calc(64px * 8);
     height: calc(64px * 8);
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap;]
+}
+
+.currentPlayer {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 25px;
 }
 
 .cell {
@@ -31,9 +38,31 @@
 }
 
 .black {
-    background-color: deepskyblue;
+    background-color: #109888;
 }
 
 .white {
-    background-color: #eed4ac;
+    background-color: #ae2727;
+}
+
+.selected {
+    background-color: rgba(255, 221, 16, 0.56);
+}
+
+.available {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: #22c022;
+}
+
+.attacked {
+    background-color: green;
+}
+
+.lost {
+    height: calc(50vh - 60px);
+    padding: 30px;
+    margin-left: 50px;
+    background-color: lightgray;
 }
