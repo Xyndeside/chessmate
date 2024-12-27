@@ -5,9 +5,10 @@ interface CellComponentProps {
     cell: Cell;
     selected: boolean;
     click: (cell: Cell) => void;
+    boardRotate: string;
 }
 
-const CellComponent: FC<CellComponentProps> = ( {cell, selected, click} ) => {
+const CellComponent: FC<CellComponentProps> = ( {cell, selected, click, boardRotate} ) => {
     return (
         <div
             className={[
@@ -15,6 +16,7 @@ const CellComponent: FC<CellComponentProps> = ( {cell, selected, click} ) => {
                 cell.color,
                 selected ? 'selected' : '',
                 cell.available && cell.figure ? 'attacked' : '',
+                boardRotate ? 'cell-rotate' : ''
             ].join(" ")}
             onClick={() => click(cell)}
         >

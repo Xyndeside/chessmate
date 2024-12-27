@@ -13,6 +13,8 @@ function App() {
     const [blackPlayer, setBlackPlayer] = useState(new Player(Colors.BLACK));
     const [currentPlayer, setCurrentPlayer] = useState<Player | null>(null);
 
+    const [boardRotate, setBoardRotate] = useState('');
+
     useEffect(() => {
         restartGame();
     }, [])
@@ -31,13 +33,15 @@ function App() {
 
     return (
         <div className="app">
-            <Timer currentPlayer={currentPlayer} restart={restartGame} />
+            <Timer currentPlayer={currentPlayer} restart={restartGame} setBoardRotate={setBoardRotate} />
 
             <BoardComponent
                 board={board}
                 setBoard={setBoard}
                 currentPlayer={currentPlayer}
                 swapPlayer={swapPlayer}
+                boardRotate={boardRotate}
+                setBoardRotate={setBoardRotate}
             />
 
             <div>

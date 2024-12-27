@@ -5,9 +5,10 @@ import {Colors} from "../models/Colors.ts";
 interface TimerProps {
     currentPlayer: Player | null;
     restart: () => void;
+    setBoardRotate: (classname: string) => void;
 }
 
-const Timer: FC<TimerProps> = ( {currentPlayer, restart} ) => {
+const Timer: FC<TimerProps> = ( {currentPlayer, restart, setBoardRotate} ) => {
     const [blackTime, setBlackTime] = useState(300);
     const [whiteTime, setWhiteTime] = useState(300);
     const timer = useRef<null | ReturnType<typeof setTimeout>>(null);
@@ -37,6 +38,7 @@ const Timer: FC<TimerProps> = ( {currentPlayer, restart} ) => {
     const handleRestart = () => {
         setWhiteTime(300);
         setBlackTime(300);
+        setBoardRotate('');
         restart();
     }
 
